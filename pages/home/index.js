@@ -1,6 +1,5 @@
 function newLocalStorage(array) {   
     const newArrayJson = JSON.stringify(array)
-    console.log(array, newArrayJson);
     localStorage.setItem("jobsData", newArrayJson);
 }
 

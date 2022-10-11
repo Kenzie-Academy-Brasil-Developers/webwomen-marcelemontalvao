@@ -29,12 +29,11 @@ function getJobsData() {
   
     if(jobsDataJSON) {
         const dataInLocalStorage = JSON.parse(jobsDataJSON)   
-        console.log(dataInLocalStorage)
         candidacies = dataInLocalStorage;
-        //renderAsideCards(dataInLocalStorage);
     } 
     renderCards(jobsData);
 }
 
 getJobsData();
+
 
