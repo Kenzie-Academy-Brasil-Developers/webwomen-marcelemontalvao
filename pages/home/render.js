@@ -1,8 +1,11 @@
 function renderCards(array) {
     const ul = document.querySelector(".cards");
+
     array.map(element => {
         ul.append(createCard(element));
     })
+    addApplyAndRemoveApplyFromBtn();
+    renderAsideCards(candidacies);
 }
 
 function renderAsideCards(array) {
@@ -15,13 +18,23 @@ function renderAsideCards(array) {
         })
         message.style.display = "none";
         removeApply();
-        newLocalStorage();
     } else { 
         message.style.display = "block";
         message.innerText = "Você ainda não aplicou para nenhuma vaga";
     }
 }
 
-renderCards(jobsData);
-addApply();
-renderAsideCards(candidacies);
+function getJobsData() {
+    const jobsDataJSON = localStorage.getItem('jobsData')
+  
+    if(jobsDataJSON) {
+        const dataInLocalStorage = JSON.parse(jobsDataJSON)   
+        console.log(dataInLocalStorage)
+        candidacies = dataInLocalStorage;
+        //renderAsideCards(dataInLocalStorage);
+    } 
+    renderCards(jobsData);
+}
+
+getJobsData();
+

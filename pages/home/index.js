@@ -1,7 +1,7 @@
-function newLocalStorage() {    
-    localStorage.setItem("candidacies", candidacies);
-    let candidacies = localStorage.getItem("candidacies");
-    console.log(candidacies)
+function newLocalStorage(array) {   
+    const newArrayJson = JSON.stringify(array)
+    console.log(array, newArrayJson);
+    localStorage.setItem("jobsData", newArrayJson);
 }
 
 function createCard(object) {
@@ -72,30 +72,34 @@ function createAsideCard(object) {
     let location = document.createElement("span")
     location.innerText = object.location;
 
+    let btn = document.getElementById(object.id);
+    btn.innerText = "Remover Candidatura"
+
     div.append(title, trashIcon);
     infoCard.append(enterprise, location);
     li.append(div,infoCard);
     return li;
 }
 
-function addApply() {
+function addApplyAndRemoveApplyFromBtn() {
     const btnsApplies = document.querySelectorAll(".purple-button");
     btnsApplies.forEach(btn => {
         btn.addEventListener("click", (event)=> {
 
             if(btn.id === event.target.id) {
                 if(btn.textContent == "Candidatar")  { 
-                    btn.innerText = "Remover Candidatura"; 
                     let objElement = jobsData[btn.id];
                     if(!candidacies.find(objElement => objElement.id == btn.id)) {
                         candidacies.push(objElement);
                     }
+                    newLocalStorage(candidacies);
                     renderAsideCards(candidacies);
                 } else { 
                     btn.innerText = "Candidatar"; 
                     candidacies = candidacies.filter(candidacy => {
                         return candidacy.id != btn.id;
                     });
+                    newLocalStorage(candidacies);
                     renderAsideCards(candidacies);
                 }               
             }
@@ -120,6 +124,7 @@ function removeApply() {
             if(candidacies.find(objElement => objElement.id == btnRemove.id)) {
                 candidacies.splice(candidacies.indexOf(objElement), 1);
             }
+            newLocalStorage(candidacies)
             renderAsideCards(candidacies);
         }
         })
