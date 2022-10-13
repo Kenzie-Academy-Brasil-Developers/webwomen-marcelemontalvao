@@ -1,5 +1,5 @@
 header {
-    background-image: url("/assets/img/Group-119.png");
+    background-image: url("../../../assets/img/Group-119.png");
     background-size: cover;
     width: 100%;
     max-width: 100%;
@@ -12,14 +12,17 @@ header .top {
     gap: 40px;
     padding: 100px 16px;
 }
+
 header .container h1 {
     color: var(--color-grey-6);
 }
+
 header .container span {
     color: var(--color-grey-3);
     font-weight: var(--weight-1);
     font-size: 32px;
 }
+
 header .container p {
     color: var(--color-grey-5);
     font-size: 18px;
@@ -51,7 +54,7 @@ header .container .text {
 
 @media(min-width: 935px) {
    header {
-        background-image: url("/assets/img/backgroung.png");   
+        background-image: url("../../../assets/img/backgroung.png");   
         height: 100vh;
     }
 
