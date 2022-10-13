@@ -1,5 +1,5 @@
 header {
-    background-image: url("../../../assets/img/Group-119.png");
+    background-image: url("../../../public/assets/img/Group-119.png");
     background-size: cover;
     width: 100%;
     max-width: 100%;
@@ -54,7 +54,7 @@ header .container .text {
 
 @media(min-width: 935px) {
    header {
-        background-image: url("../../../assets/img/backgroung.png");   
+        background-image: url("../../../public/assets/img/backgroung.png");   
         height: 100vh;
     }
 
