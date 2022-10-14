@@ -1,8 +1,11 @@
 header {
     background-image: url("../../../public/assets/img/Group-119.png");
     background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
     width: 100%;
     max-width: 100%;
+    background-attachment: fixed;
 }
 
 header .top {
@@ -11,6 +14,7 @@ header .top {
     align-items: flex-start;
     gap: 40px;
     padding: 100px 16px;
+    z-index: 2;
 }
 
 header .container h1 {
